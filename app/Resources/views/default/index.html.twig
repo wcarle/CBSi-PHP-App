@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="row">
+    	<div class="col-md-12">
+    	Homepage. Hi!
+    	
+    	<ul id="games">
+            {% for game in games %}
+                <li>{{ game.name }}: {{ game.platform }}</li>
+            {% endfor %}
+        </ul>
+    	</div>
+    </div>
+{% endblock %}
