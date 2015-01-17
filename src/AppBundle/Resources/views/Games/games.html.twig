@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="row">
+    	<div class="col-md-12">
+        	<ul id="games">
+                {% for game in games %}
+                    <li><a href="/game/{{ game.id }}">{{ game.name }}: {{ game.platform }}</a></li>
+                {% endfor %}
+            </ul>
+            <a class="btn btn-primary" href="/game/0">Add</a>
+    	</div>
+    </div>
+{% endblock %}

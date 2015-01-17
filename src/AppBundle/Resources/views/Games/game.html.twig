@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="row">
+    	<div class="col-md-12">
+            <form class="add-game" action="{{ game.id == 0 ? '/games/AddGame' : '/games/SaveGame'}}" method="POST">
+                    <input type="hidden" name="id" value="{{ game.id }}"/>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            Name:
+                        </div>
+                        <div class="col-sm-5">
+                            <input value="{{ game.name }}" class="form-control" type="text" name="name"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            Platform:
+                        </div>
+                        <div class="col-sm-5">
+                            <input value="{{ game.platform }}" class="form-control" type="text" name="platform"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            Description:
+                        </div>
+                        <div class="col-sm-5">
+                            <textarea class="form-control" name="description">{{ game.description }}</textarea>
+                        </div>
+                    </div>           
+                <button class="btn btn-primary">{{ game.id == 0 ? 'Add' : 'Save'}}</button>
+                {% if game.id != 0 %}
+                    <a class="confirm btn btn-danger" href="/games/RemoveGame/{{game.id}}">Delete</a>
+                {% endif %}
+                <a class="btn btn-default" href="/games">Back</a>
+            </form>
+    	</div>
+    </div>
+{% endblock %}
+{% block javascripts %}    
+    <script>
+        $(function(){
+            $(".confirm").click(function(){
+                return confirm("Are you sure you want to delete this game?");
+            });
+        })
+    </script>
+{% endblock %}
