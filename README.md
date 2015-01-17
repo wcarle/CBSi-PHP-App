@@ -8,4 +8,6 @@ Features
 
   * Reads from mySQL data store using Doctrine ORM
 
+  * Basic CRUD functionality for "Game" entity
+
   * More to come!
