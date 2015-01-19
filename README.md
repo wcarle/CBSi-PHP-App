@@ -10,4 +10,6 @@ Features
 
   * Basic CRUD functionality for "Game" entity
 
+  * CRUD page for "Game" entities using Backbone/AJAX
+
   * More to come!
