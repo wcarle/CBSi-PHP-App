@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use AppBundle\Utils\GameService;
 use AppBundle\Entity\Game;
@@ -12,7 +13,7 @@ use AppBundle\Entity\Game;
 class GamesController extends Controller
 {
     /**
-     * @Route("/games/")
+     * @Route("/games/", name="games")
      * @Template()
      */
     public function gamesAction()
@@ -49,6 +50,7 @@ class GamesController extends Controller
     }
     /**
      * @Route("/games/SaveGame")
+     * @Method("POST")
      */
     public function saveGameAction(Request $request)
     {
@@ -59,10 +61,11 @@ class GamesController extends Controller
             $form->get('name'), 
             $form->get('platform'), 
             $form->get('description'));
-        return $this->redirect('/games');
+        return $this->redirect($this->generateUrl('games'));
     }
         /**
      * @Route("/games/AddGame")
+     * @Method("POST")
      */
     public function addGameAction(Request $request)
     {
@@ -72,7 +75,7 @@ class GamesController extends Controller
             $form->get('name'), 
             $form->get('platform'), 
             $form->get('description'));
-        return $this->redirect('/games');
+        return $this->redirect($this->generateUrl('games'));
     }
     /**
      * @Route("/games/RemoveGame/{id}")
@@ -81,7 +84,7 @@ class GamesController extends Controller
     {
         $service = $this->get('cbsi.services.game');
         $service->removeGame($id);
-        return $this->redirect('/games');
+        return $this->redirect($this->generateUrl('games'));
     }
 
 }

@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="row">
+    	<div class="col-md-12">
+            <h1>Games List:</h1>
+        	<div class="games">
+            </div>
+    	</div>
+    </div>
+    <script type="text/template" id="games-list-template">
+        <ul class="list-group game-row">
+        </ul>
+        <div class="row">
+            <div class="col-md-4">
+                Name:
+                <input type="text" class="form-control" id="txt-name" placeholder="Game Name">
+            </div>
+            <div class="col-md-2">
+                Platform:
+                <input type="text" class="form-control" id="txt-platform" placeholder="Platform">
+            </div>
+            <div class="col-md-5">
+                Description:
+                <textarea class="form-control" id="txt-description"></textarea>
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-primary" id="addGame" type="button">Add</button>
+            </div>
+        </div>
+    </script>
+    <script type="text/template" id="game-template">
+        <a class="list-group-item" data-game-id="<%= game.get('id')%>">
+            <div class="row">
+                <div class="col-md-10">
+                    <h4 class="view-field list-group-item-heading"><%= game.get('name') %></h4>
+                    <input style="display:none;" value="<%= game.get('name') %>" class="txt-name edit-field form-control" type="text"/>
+                </div>
+                <div class="col-md-2">
+                    <span class="view-field pull-right"><%= game.get('platform') %></span>
+                    <input type="text" style="display:none;" class="edit-field txt-platform form-control" value="<%= game.get('platform')%>"/>
+                    <br/>
+                    <div class="pull-right controls" style="visibility:hidden;">
+                        <button style="display:none;" class="edit-field save btn btn-success btn-xs">Save</button>
+                        <button style="display:none;" class="edit-field cancel btn btn-default btn-xs">Cancel</button>
+                        <button class="view-field edit btn btn-default btn-xs">Edit</button>
+                        <button class="view-field delete btn btn-danger btn-xs">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10">
+                    <p class="view-field list-group-item-text"><%= game.get('description') %></p>
+                    <textarea style="display:none;" class="edit-field txt-description form-control"><%= game.get('description')%></textarea>
+                </div>
+            </div>
+        </a>
+    </script>
+{% endblock %}
+{% block javascripts %}    
+    <script src="{{ asset('bundles/cbsi/js/app.js') }}"></script>
+{% endblock %}

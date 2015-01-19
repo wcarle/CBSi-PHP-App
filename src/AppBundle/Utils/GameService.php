@@ -14,12 +14,12 @@ class GameService
         $this->em = $em;
     }
 
-	public function getGames()
-	{
-		$repo = $this->em->getRepository('AppBundle:Game');
-		$games = $repo->findAll();
-		return $games;
-	}
+    public function getGames()
+    {
+        $repo = $this->em->getRepository('AppBundle:Game');
+        $games = $repo->findAll();
+        return $games;
+    }
     public function getGame($id)
     {
         $repo = $this->em->getRepository('AppBundle:Game');

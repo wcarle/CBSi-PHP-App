@@ -3,9 +3,16 @@
 {% block body %}
 	<div class="row">
     	<div class="col-md-12">
-    	Welcome to my very simple example PHP site.
-
-    	<a href="/games">Games List</a>
+    		<p>
+    			Welcome to my very simple example PHP site.  
+    		</p>
+    		<p>
+    			So far I've created two simple CRUD implementations, one using standard HTML forms and the other using Backbone.js and AJAX.
+    		</p>    	
+	    	<div class="list-group">
+				<a class="list-group-item" href="/games">Games List (Standard HTML Forms)</a>
+				<a class="list-group-item" href="/backbone">Games List (Backbone AJAX)</a>
+	    	</div>
     	</div>
     </div>
 {% endblock %}
