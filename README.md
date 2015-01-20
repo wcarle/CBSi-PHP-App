@@ -12,4 +12,4 @@ Features
 
   * CRUD page for "Game" entities using Backbone/AJAX
 
-  * More to come!
+  * [Demo Video](http://www.willcarle.com/img/portfolio/CBSiDemo.mp4)
