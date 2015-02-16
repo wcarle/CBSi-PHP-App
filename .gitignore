@@ -23,7 +23,9 @@
 /vendor/
 
 # Assets and user uploads
-/web/bundles/
+/web/bundles/acmedemo
+/web/bundles/framework
+/web/bundles/sensiodistribution
 /web/uploads/
 
 # PHPUnit
